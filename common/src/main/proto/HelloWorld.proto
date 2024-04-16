@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc.common";
+option java_outer_classname = "HelloWorldProto";
+
+service HelloWorld {
+  rpc sayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+  google.protobuf.Struct data = 2;
+}
+
+message HelloResponse {
+  string greeting = 1;
+  google.protobuf.Struct data = 2;
+}

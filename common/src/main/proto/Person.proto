@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc.common";
+option java_outer_classname = "PersonProto";
+
+
+message Person
+{
+  string name = 1;
+  int32 age = 2;
+  google.protobuf.Struct additionalInfo = 3;
+
+}
+
+service ExampleService {
+  rpc sendStruct(google.protobuf.Struct) returns (google.protobuf.Struct);
+}
